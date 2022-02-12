@@ -34,13 +34,13 @@ if(isset($_POST['register'])){
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
         $mail->Host = 'smtp.gmail.com';
-        $mail->Username = 'ethan.garr2000@gmail.com';
-        $mail->Password = 'Shakopee1';
-        $mail->setFrom('test.mailer.ad@gmail.com', 'SupporTech');
+        $mail->Username = 'Yourgmailaccount@gmail.com';
+        $mail->Password = 'Password';
+        $mail->setFrom('test.mailer.ad@gmail.com', 'Your Company or PersonalNane');
         $mail->addAddress($user->getEmail());
         $mail->isHTML(true);
-        $mail->Subject = 'Registration Verification for SupporTech Messaging';
-        $mail->Body = '<p>Thank you for registering for SupporTech Messaging!</p>
+        $mail->Subject = 'Registration Verification for Chat Messaging';
+        $mail->Body = '<p>Thank you for registering for Chat Messaging!</p>
                         <p>Please click the verification link below to verify your email.</p>
                         <br>
                         <p><a href="http://localhost:8080/Messaging/verify.php?code='.$user->getVerificationCode() . '">Click to Verify Email</a></p>
