@@ -8,23 +8,23 @@ if(!isset($_SESSION['user_id'])){
 ?>
 
 <title>Explore</title>
-<div class="container-fluid" style="margin-top:5%;">
+<div class="container-fluid">
+    <br>
     <div class="row">
-        <div class="col">
+        <div class="col-lg-3 col-md-4 col-sm-5" style="height:100vh; border-right:1px solid grey;">
+            <div class="mt-3 mb-3 text-center">
             <h3>Search by Username</h3>
             <br>
-            <form action="" method="POST" class="form-inline">
-                <div class="input-group">
-                    <input type="text" name="name" class="form-control" placeholder="Search...">
-                    <button type="submit" name="search" class="input-group-addon"><i class="fas fa-search"></i></button>
+            <form action="" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Search a friend">
+                    <div class="input-group-append">
+                        <button type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </div>
                 </div>
             </form>
-        </div>
-        <div class="col-6"></div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <ul class="list-group" style="width:30%;">
+            </div>
+            <div class="list-group" style="max-height:100vh; margin-bottom:10px; overflow-y:scroll; -webkit-overflow-scrolling:touch;">
                     
                     <?php if(!empty($_SESSION['users'])){
                             foreach($_SESSION['users'] as $user){?>
@@ -36,10 +36,18 @@ if(!isset($_SESSION['user_id'])){
                             echo " <li class='list-group-item'>No users found</li>";
                         }
                     ?>
-                    
-            </ul>
+            </div>
+
         </div>
-        <div class="col-6"></div>
-    </div>
+        <div class="col-lg-9 col-md-8 col-sm-7">
+            <?php 
+            
+                $crud = new Crud(); 
+                $message = $crud->welcomeMessage($_SESSION['username']);
+
+            ?>
+            <h3 class="text-center"><?php echo $message;?></h3>
+        </div>
 </div>
+
 

@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
@@ -35,13 +36,13 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">Home</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="explore.php">Explore</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.php">Dashboard</a>
+          <a class="nav-link" href="chats.php">Messages</a>
         </li>
       </ul>
       <!-- Left links -->

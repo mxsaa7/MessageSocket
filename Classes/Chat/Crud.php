@@ -27,6 +27,16 @@ class Crud extends User{
         return $user;
     }
 
+    public function welcomeMessage($name){
+        $hi = "Hello, " . $name . "!";
+        $welcome = "Welcome to the best application ever!";
+        $need_help = "Is there anything I can help you with, " . $name . "?";
+        $convo = "What's the weather like in your area? In here the servers keep me very warm!";
+        $messages = array($hi, $welcome, $need_help, $convo);
+        shuffle($messages);
+        return $messages[1];
+    }
+
 
 
 

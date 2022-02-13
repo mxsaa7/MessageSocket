@@ -20,13 +20,12 @@ $user = $_SESSION['user_data'];
                 <h2><?php echo $user[0]['user_username'];?></h2>
             </div>
             <div class="form-group">
-                <textarea name="bio" id="" cols="30" rows="5" disabled>I am a cool guy</textarea>
+                <a href="chat.php?cuid=<?php echo $user[0]['id'];?>" class="btn btn-info">Message</a>
+                <a href="fuid=<?php echo $user[0]['id'];?>" class="btn btn-secondary">Follow</a>
             </div>
-                <div class="form-group">
-                    <a href="chat.php?cuid=<?php echo $user[0]['id'];?>" class="btn btn-info">Message</a>
-                    <a href="fuid=<?php echo $user[0]['id'];?>" class="btn btn-secondary">Follow</a>
-                </div>
-            </form>
+            <div class="form-group">
+                <textarea name="bio" id="" cols="30" rows="5" disabled><?php echo $user[0]['user_bio'];?></textarea>
+            </div>
         </div>
     </div>
     <div class="col-sm">

@@ -6,6 +6,8 @@ class User extends DB{
     private $user_profile;
     private $bio;
     private $user_id;
+    private $user_token;
+    private $user_connection_id;
 
 
     public function setUserProfile($user_profile){
@@ -38,6 +40,22 @@ class User extends DB{
 
     public function getBio(){
         return $this->bio;
+    }
+
+    public function setUserToken($user_token){
+        $this->user_token = $user_token;
+    }
+
+    public function getUserToken(){
+        return $this->user_token;
+    }
+
+    public function setUserConnectionId($user_connection_id){
+        $this->user_connection_id = $user_connection_id;
+    }
+
+    public function getUserConnectionId(){
+        return $this->user_connection_id;
     }
 
     public function logout(){
