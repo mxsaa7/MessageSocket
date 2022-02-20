@@ -72,11 +72,31 @@ class User extends DB{
         return $destination;
     }
 
+    public function getUserData(){
+        $sql = "SELECT * FROM users WHERE id=?";
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute(array($this->user_id));
+        $user_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $user_data;
+    }
+
     
     public function updateUser(){
         $sql = 'UPDATE users SET user_email_address=?, user_profile=?, user_bio=? WHERE id=?';
         $stmt = $this->conn()->prepare($sql);
         $stmt->execute(array($this->email, $this->user_profile, $this->bio, $this->user_id));
+    }
+
+    public function updateToken(){
+        $sql = "UPDATE users SET user_token=? WHERE id=?";
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute(array($this->user_token, $this->user_id));
+    }
+
+    public function updateUserConnectionId(){
+        $sql = 'UPDATE users SET user_connection_id=? WHERE user_token=?';
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute(array($this->user_connection_id, $this->user_token));
     }
     
  

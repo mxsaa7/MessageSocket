@@ -11,8 +11,9 @@ include 'Classes/Login/login.process.php';
 
 include 'Classes/Chat/User.php';
 include 'Classes/Chat/Crud.php';
-include 'Classes/Chat/user.process.php';
 include 'Classes/Chat/Message.php';
+include 'Classes/Chat/user.process.php';
+
 
 include 'Classes/Register/UserRegister.php';
 include 'Classes/Register/register.process.php';

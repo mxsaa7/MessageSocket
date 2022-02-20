@@ -37,6 +37,14 @@ class Crud extends User{
         return $messages[1];
     }
 
+    public function getAllUsers($user_id){
+        $sql = 'SELECT * FROM users WHERE id !=?;';
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute(array($user_id));
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $user;
+    }
+
 
 
 

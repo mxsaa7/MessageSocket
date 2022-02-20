@@ -42,3 +42,20 @@ if(isset($_GET['uid'])){
     $user_data = $crud->viewProfile($user_id);  
     $_SESSION['user_data'] = $user_data;
 }
+
+if(isset($_POST['view_profile'])){
+    $crud = new Crud();
+    $user_id = json_decode($_POST['data']);
+    echo $user_id;
+}
+
+if(isset($_POST['action']) && $_POST['action'] == 'fetch_chat'){
+    header('Content-type: application/json charset=utf-8', true); 
+    $all_messages = new Message();
+    $all_messages->setUserToId($_POST['to_user_id']);
+    $all_messages->setUserFromId($_POST['from_user_id']);
+    echo json_encode($all_messages->loadMessages(), true);
+    exit();
+   
+    
+}

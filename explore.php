@@ -27,9 +27,9 @@ if(!isset($_SESSION['user_id'])){
             <div class="list-group" style="max-height:100vh; margin-bottom:10px; overflow-y:scroll; -webkit-overflow-scrolling:touch;">
                     
                     <?php if(!empty($_SESSION['users'])){
-                            foreach($_SESSION['users'] as $user){?>
-                            <li class="list-group-item"><img src="<?php echo $user['user_profile'];?>" alt="" width="40" height="40" style="margin-right:5px;"><a href="profile.php?uid=<?php echo $user['id'];?>"><?php echo $user['user_username'] ;?></a></li>
-                    <?php }
+                            foreach($_SESSION['users'] as $user){
+                                echo '<li class="list-group-item select_user" data-userid="'.$user['id'].'"><img src="'.$user['user_profile'].'" alt="" width="40"><a href="" style="margin-left: 5px;">'.$user['user_username'].'</a></li>';
+                            }
                     
                         }
                         if(isset($_GET['er']) && $_GET['er'] == "ntfound"){
@@ -49,5 +49,30 @@ if(!isset($_SESSION['user_id'])){
             <h3 class="text-center"><?php echo $message;?></h3>
         </div>
 </div>
+<script>
+    $(document).ready(function(){
+
+        $(document).on('click', '.select_user', function(){
+            user_id = $(this).data('userid');
+            console.log(user_id);
+
+            $.ajax({
+                url:'user.process.php',
+                type: 'POST',
+                data:{action: 'view_profile', user_id:user_id},
+                dataType: 'JSON', 
+                success:function(data){
+                    for(var i = 0; i < len; i++){
+                        var user_id = data[i].user_id;
+                    }
+                }
+            });
+        });
+
+
+
+
+    });
+</script>
 
 
