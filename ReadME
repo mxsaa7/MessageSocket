@@ -24,6 +24,10 @@ Add Friends
 
 
 I wanted to give myself a challenge, and so far I've been able to work through adding certain features. 
-- The real challenge will be adding a websocket, as I will need to read through documentation to achieve
-real time chatting.
+- The real challenge was working with the Websocket and sending the data across the server. In this project, I feel that I've grown with the use of JavaScript, JSON, and ajax. 
+I feel that I've accomplished a lot, and that I've also grown a lot within my code. I went from creating basic HTML & CSS templates 4 months ago to create dynamic web chat applications.
+
+
+I was able to brush up on my SQL querying, using inner joins, and performing other CRUD methods via the DB. Backend programming is an amazing, and extensive part of development, and it always provides a challenge.
+
 
