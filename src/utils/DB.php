@@ -6,7 +6,7 @@ class DB{
         try{
             $username = 'root';
             $password = '';
-            $db = new PDO('mysql:host=localhost; dbname=chat', $username, $password);
+            $db = new PDO('mysql:host=localhost; dbname=message', $username, $password);
             return $db;
         }
         catch(PDOException $e){

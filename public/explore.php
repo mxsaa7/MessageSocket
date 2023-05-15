@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once 'Classes/include.php';
+require_once '../src/utils/include.php';
 if(!isset($_SESSION['user_id'])){
     header('location: login.php');
 }

@@ -1,5 +1,5 @@
 <?php 
-require_once 'Classes/include.php';
+require_once '../src/utils/include.php';
 session_start();
 $user = new User();
 $user->setUserID($_SESSION['user_id']);
