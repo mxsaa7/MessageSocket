@@ -1,8 +1,11 @@
 <?php 
 
-require_once 'Classes/include.php';
-$user = new UserRegister();
-
+require_once '../src/utils/include.php';
+session_start();
+require_once '../src/utils/include.php';
+if(isset($_SESSION['user_id'])){
+    header('location: index.php');
+}
 ?>
 <html>
     <body>
@@ -16,26 +19,37 @@ $user = new UserRegister();
                         '.$error.'
                     </div>';
             }
-            elseif(strpos($fullUrl, "error=alreadyexists") == true){
-                $error = "A user with that username or email already exists";
+            elseif(strpos($fullUrl, "login=ntfnd") == true){
+                $error = "We cannot find an account with that username or password";
                 echo '<div class="alert alert-danger" style="text-align:center;">
                         '.$error.'
                     </div>';
             }
-            elseif(strpos($fullUrl, "regsucv") == true){
-                $user_email = $_GET['uem'];
-                $message = "A verification email has been sent to " .$user_email. ", please verify before attempting to login";
+            elseif(strpos($fullUrl, "login=invalid") == true){
+                
+                $error = "Your credentials are incorrect";
+                echo '<div class="alert alert-danger" style="text-align:center;">
+                        '.$error.'
+                    </div>';
+            }
+            elseif(strpos($fullUrl, "accnt=notenabled") == true){
+                $error = "Your account email hasn't been verified, please click the link in the email we sent to you";
+                echo '<div class="alert alert-danger" style="text-align:center;">
+                        '.$error.'
+                    </div>';
+            }
+            elseif(strpos($fullUrl, "logout=success") == true){
+                $message = "You have successfully logged out!";
                 echo '<div class="alert alert-info" style="text-align:center;">
                         '.$message.'
                     </div>';
-            }
+            } 
 
         ?>
         <form action="" method="POST">
             <input type="text" name="username" placeholder="Username">
-            <input type="text" name="email" placeholder="Email">
             <input type="text" name="password" placeholder="Password">
-            <input type="submit" name="register" value="Register">
+            <input type="submit" name="login" value="Login">
         </form>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
